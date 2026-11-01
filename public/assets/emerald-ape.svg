@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900" role="img" aria-labelledby="title desc">
+  <title id="title">Emerald Ape</title><desc id="desc">Ilustração editorial de um macaco com óculos esmeralda</desc>
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#d7e6b0"/><stop offset="1" stop-color="#496d43"/></linearGradient><radialGradient id="fur"><stop stop-color="#f4e9d1"/><stop offset="1" stop-color="#9a846c"/></radialGradient></defs>
+  <rect width="900" height="900" fill="url(#bg)"/><circle cx="130" cy="150" r="95" fill="#f3ad61" opacity=".38"/><circle cx="760" cy="760" r="220" fill="#203c35" opacity=".32"/>
+  <path d="M155 730c23-221 98-406 295-423 192-16 280 168 298 423H155Z" fill="#385d4b"/><ellipse cx="450" cy="410" rx="252" ry="292" fill="url(#fur)"/><ellipse cx="252" cy="394" rx="91" ry="116" fill="#b89d7c"/><ellipse cx="648" cy="394" rx="91" ry="116" fill="#b89d7c"/>
+  <ellipse cx="450" cy="500" rx="164" ry="148" fill="#ead9bd"/><circle cx="365" cy="408" r="35" fill="#222a22"/><circle cx="535" cy="408" r="35" fill="#222a22"/><circle cx="374" cy="397" r="10" fill="#fff"/><circle cx="544" cy="397" r="10" fill="#fff"/>
+  <path d="M308 382h112l30 58H278l30-58Zm172 0h112l30 58H450l30-58Z" fill="#5b9b68" stroke="#203c35" stroke-width="15"/><path d="M420 411h60" stroke="#203c35" stroke-width="15"/>
+  <ellipse cx="450" cy="543" rx="66" ry="48" fill="#8b604e"/><path d="M409 557c24 25 58 25 82 0" fill="none" stroke="#321f1b" stroke-width="12" stroke-linecap="round"/><text x="46" y="840" fill="#fff5e8" font-family="monospace" font-size="24" letter-spacing="5">KURIO / 042</text>
+</svg>

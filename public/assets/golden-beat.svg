@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900" role="img" aria-labelledby="title desc">
+  <title id="title">Golden Beat</title><desc id="desc">Ilustração dourada de um beat colecionável</desc>
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f5bd58"/><stop offset="1" stop-color="#8d3f2a"/></linearGradient></defs>
+  <rect width="900" height="900" fill="url(#bg)"/><path d="M0 180 180 0h80L0 260Zm900 450L610 900h-80l370-370Z" fill="#ffd98a" opacity=".55"/><circle cx="450" cy="386" r="194" fill="#3a2530"/><circle cx="450" cy="386" r="108" fill="#f5bd58"/><circle cx="450" cy="386" r="35" fill="#8d3f2a"/><path d="M236 385c0-144 96-246 214-246s214 102 214 246" fill="none" stroke="#352431" stroke-width="39"/><path d="M214 365v120c0 40 36 64 76 53l35-10V335l-35-10c-40-11-76 0-76 40Zm472 0v120c0 40-36 64-76 53l-35-10V335l35-10c40-11 76 0 76 40Z" fill="#e58d45" stroke="#352431" stroke-width="17"/><path d="M200 710c122-83 278-83 500 0" fill="none" stroke="#3a2530" stroke-width="46" stroke-linecap="round"/><text x="46" y="840" fill="#fff5e8" font-family="monospace" font-size="24" letter-spacing="5">KURIO / 207</text>
+</svg>
