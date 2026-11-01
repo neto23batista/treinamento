@@ -35,9 +35,9 @@ O pedido usa snapshot de itens, quantidades, total, carteira, rede e data. Alter
 
 ## Tempo real
 
-O `socket.io-client` conecta sob demanda ao servidor configurado por `VITE_SOCKET_URL`, no primeiro gesto do usuário ou no fallback de segurança. `nft.updated` altera preço e estoque do fixture, invalida as queries de catálogo/detalhe e informa o usuário; `order.updated` altera o pedido ativo. Um mapa de versões ignora duplicatas e eventos antigos, e é limpo ao trocar de sessão. Listeners são removidos no cleanup do provider; ao reconectar, o pedido ativo é reconciliado por `GET /api/orders/:id`.
+O `socket.io-client` conecta sob demanda ao servidor configurado por `VITE_SOCKET_URL`, no primeiro gesto do usuário ou no fallback de segurança. Quando `VITE_SOCKET_MOCK=true`, ele usa o mesmo host da aplicação e o worker MSW é inicializado antes da conexão; essa é a configuração de `.env.production` para o deploy demonstrativo. `nft.updated` altera preço e estoque do fixture, invalida as queries de catálogo/detalhe e informa o usuário; `order.updated` altera o pedido ativo. Um mapa de versões ignora duplicatas e eventos antigos, e é limpo ao trocar de sessão. Listeners são removidos no cleanup do provider; ao reconectar, o pedido ativo é reconciliado por `GET /api/orders/:id`.
 
-O servidor local é uma ferramenta de demonstração, não um backend de produção. Para testar eventos, conecte um cliente Socket.IO ao endereço indicado e emita `demo:nft-update` ou `demo:order-update`; o servidor então transmite o evento de domínio aos clientes. O binding MSW opcional fica atrás de `VITE_SOCKET_MOCK=true` e deve ser tratado como cenário experimental, pois o transporte WebSocket precisa ser disponibilizado pelo ambiente de teste.
+O servidor local é uma ferramenta de demonstração para exercitar o transporte real, não um backend de produção. Para testar eventos localmente, conecte um cliente Socket.IO a `http://127.0.0.1:3001` e emita `demo:nft-update` ou `demo:order-update`; o servidor então transmite o evento de domínio aos clientes. No build publicado, o binding MSW fica atrás de `VITE_SOCKET_MOCK=true` e intercepta o WebSocket no mesmo host da aplicação; essa modalidade cobre o demo estático, enquanto um ambiente com socket real deve hospedar o processo Node separadamente.
 
 ## Acessibilidade e responsividade
 
@@ -45,4 +45,4 @@ Há skip link, foco visível, landmarks, labels, `role="status"`/`role="alert"`,
 
 ## Limitações assumidas
 
-Blockchain, extensões de carteira, gateway de pagamento, upload real de avatar e backend persistente estão fora do escopo. A conexão de carteira e o pagamento são estados simulados e podem ser exercitados por `kurio-mock-wallet-status`; não há transação real. O deploy público exige hospedar o processo Socket.IO separadamente ou apontar `VITE_SOCKET_URL` para uma implementação compatível. As ilustrações SVG locais são substitutas documentadas dos assets do Figma e evitam dependência de rede no LCP.
+Blockchain, extensões de carteira, gateway de pagamento, upload real de avatar e backend persistente estão fora do escopo. A conexão de carteira e o pagamento são estados simulados e podem ser exercitados por `kurio-mock-wallet-status`; não há transação real. O deploy público usa o binding Socket.IO do MSW no mesmo host; uma integração real exige hospedar o processo Socket.IO separadamente ou apontar `VITE_SOCKET_URL` para uma implementação compatível. As ilustrações SVG locais são substitutas documentadas dos assets do Figma e evitam dependência de rede no LCP.

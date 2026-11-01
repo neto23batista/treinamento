@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-01T05:12:52.622Z",
-  "origin": "http://127.0.0.1:4173",
+  "generatedAt": "2026-11-01T05:31:46.642Z",
+  "origin": "http://127.0.0.1:4174",
   "tooling": {
     "node": "v25.6.1",
     "lighthouse": "^13.6.0",
@@ -37,7 +37,7 @@
       "accessibility": 100,
       "bestPractices": 100,
       "seo": 100,
-      "lcp": 436.2823,
+      "lcp": 438.1939,
       "cls": 0,
       "tbt": 0
     },
@@ -46,16 +46,16 @@
       "accessibility": 100,
       "bestPractices": 100,
       "seo": 100,
-      "lcp": 1878.7104,
+      "lcp": 1884.7249,
       "cls": 0,
-      "tbt": 134.2283
+      "tbt": 142.78674999999998
     },
     "/nft/emerald-ape-042-desktop": {
       "performance": 100,
       "accessibility": 100,
       "bestPractices": 100,
       "seo": 100,
-      "lcp": 435.44215,
+      "lcp": 432.61170000000004,
       "cls": 0,
       "tbt": 0
     },
@@ -64,9 +64,9 @@
       "accessibility": 100,
       "bestPractices": 100,
       "seo": 100,
-      "lcp": 1809.5259,
+      "lcp": 1820.2255,
       "cls": 0,
-      "tbt": 146.23704999999995
+      "tbt": 156.26985000000013
     }
   }
 }

@@ -110,7 +110,7 @@ function AppProvider({ children }: { children: ReactNode }) {
       started = true
       window.removeEventListener('pointerdown', connectSocket)
       window.removeEventListener('keydown', connectSocket)
-      void getSocket().then((socket) => {
+      void waitForNetworkReady().then(() => getSocket()).then((socket) => {
         if (disposed) return
         client = socket
         socket.on('nft.updated', handleUpdate)

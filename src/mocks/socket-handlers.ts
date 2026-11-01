@@ -1,7 +1,9 @@
 import { ws } from 'msw'
 import { toSocketIo } from '@mswjs/socket.io-binding'
 
-const socketLink = ws.link('ws://127.0.0.1:3001/socket.io/')
+const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:'
+// MSW strips Socket.IO's `/socket.io/` prefix before matching the WebSocket URL.
+const socketLink = ws.link(`${protocol}//${window.location.host}`)
 
 export const socketHandlers = [socketLink.addEventListener('connection', (connection) => {
   const { client, server } = toSocketIo(connection)

@@ -27,6 +27,8 @@ npm run test:e2e
 npm run lighthouse
 ```
 
+Para reproduzir o Lighthouse, execute `npm run build`, mantenha `npm run preview -- --host 127.0.0.1 --port 4173` em outro terminal e então rode `npm run lighthouse`. Se o preview estiver em outra porta, use `LIGHTHOUSE_ORIGIN=http://127.0.0.1:PORTA npm run lighthouse`.
+
 O relatório HTML autocontido da última execução do Playwright fica em `playwright-report/index.html`. A auditoria gera três medições por página e perfil em `reports/lighthouse/`, incluindo HTML, JSON e `summary.json` com as medianas; esses relatórios também são entregues no repositório para conferência e reprodução da auditoria.
 
 ## Dados simulados e cenários
@@ -45,7 +47,7 @@ Variáveis opcionais:
 | `VITE_MOCK_ORDER_STATUS=pending` | Cria o pedido como pendente. |
 | `VITE_MOCK_ORDER_STATUS=rejected` | Cria o pedido como recusado. |
 | `VITE_SOCKET_URL` | Troca a origem do Socket.IO; o padrão local é `http://127.0.0.1:3001`. |
-| `VITE_SOCKET_MOCK=true` | Habilita o handler experimental compatível com `@mswjs/socket.io-binding`. |
+| `VITE_SOCKET_MOCK=true` | Habilita o handler compatível com `@mswjs/socket.io-binding` no mesmo host da aplicação; já vem ativado em `.env.production` para o deploy demonstrativo. |
 
 Durante uma sessão no navegador, os mesmos cenários também podem ser alternados sem rebuild pelas chaves `kurio-mock-latency`, `kurio-mock-failure`, `kurio-mock-favorites-failure`, `kurio-mock-order-timeout`, `kurio-mock-order-status` e `kurio-mock-wallet-status=rejected|disconnected`. O filtro de preço do catálogo usa `maxPrice` junto de `q`, `category`, `tab`, `sort` e `page`, todos preservados na URL.
 
@@ -74,7 +76,7 @@ React, TypeScript, TanStack Router, TanStack Query, Axios, REST simulado por MSW
 
 ## Última auditoria local
 
-Executada em 01/11/2026 contra o build de produção em `http://127.0.0.1:4173`, com três medições por cenário. A mediana, as versões de Node/Lighthouse, os viewports, a configuração de throttling e a quantidade de execuções estão registradas em `reports/lighthouse/summary.json`; os relatórios individuais em HTML/JSON ficam no mesmo diretório.
+Executada em 01/11/2026 contra o build de produção em `http://127.0.0.1:4174`, com três medições por cenário. A mediana, as versões de Node/Lighthouse, os viewports, a configuração de throttling e a quantidade de execuções estão registradas em `reports/lighthouse/summary.json`; os relatórios individuais em HTML/JSON ficam no mesmo diretório.
 
 | Página/perfil | Performance | Accessibility | Best Practices | SEO |
 | --- | ---: | ---: | ---: | ---: |
@@ -83,7 +85,7 @@ Executada em 01/11/2026 contra o build de produção em `http://127.0.0.1:4173`,
 | Detalhe desktop | 100 | 100 | 100 | 100 |
 | Detalhe mobile | 98 | 100 | 100 | 100 |
 
-Todos os quatro perfis atendem ao alvo de performance `>= 90`, além de 100 em acessibilidade, boas práticas e SEO. O boot sob demanda mantém MSW e Socket.IO disponíveis para os fluxos interativos sem colocar seus chunks de desenvolvimento no caminho crítico do primeiro paint. O runner usa o preset desktop real para o perfil desktop e registra as medianas completas em `reports/lighthouse/summary.json`; o resultado não é mascarado por uma página simplificada: catálogo, revalidação REST, cenários MSW e eventos Socket.IO continuam cobertos pelos testes.
+Todos os quatro perfis atendem ao alvo de performance `>= 90`, além de 100 em acessibilidade, boas práticas e SEO. As medianas de LCP/CLS/TBT foram, respectivamente: home desktop `438/0/0`, home mobile `1885/0/143`, detalhe desktop `433/0/0` e detalhe mobile `1820/0/156` (ms, exceto CLS). O boot sob demanda mantém MSW e Socket.IO disponíveis para os fluxos interativos sem colocar seus chunks de desenvolvimento no caminho crítico do primeiro paint. O runner usa o preset desktop real e registra as medianas completas em `reports/lighthouse/summary.json`; o resultado não é mascarado por uma página simplificada: catálogo, revalidação REST, cenários MSW e eventos Socket.IO continuam cobertos pelos testes.
 
 ## Imagens e Figma
 
@@ -91,4 +93,4 @@ O arquivo Figma fornecido no desafio não expõe assets exportáveis anonimament
 
 ## Deploy
 
-O frontend Vite pode ser publicado em Vercel, Netlify ou Cloudflare Pages com fallback de SPA para `index.html`. O socket de demonstração precisa ser hospedado como processo Node separado ou substituído por um endpoint Socket.IO compatível; o build está preparado para receber `VITE_SOCKET_URL`. Pagamentos e blockchain são deliberadamente simulados, conforme o escopo do desafio.
+O frontend Vite pode ser publicado em Vercel, Netlify ou Cloudflare Pages com fallback de SPA para `index.html`. O `.env.production` ativa o MSW e o binding Socket.IO no mesmo host, mantendo os eventos demonstrativos funcionando também no deploy estático. Para trocar o mock por um servidor Socket.IO real, remova `VITE_SOCKET_MOCK` e aponte `VITE_SOCKET_URL` para um processo Node hospedado separadamente. Pagamentos e blockchain são deliberadamente simulados, conforme o escopo do desafio.
