@@ -27,7 +27,7 @@ npm run test:e2e
 npm run lighthouse
 ```
 
-O relatório HTML do Playwright é criado em `playwright-report/`. A auditoria gera três medições por página e perfil em `reports/lighthouse/`, incluindo HTML, JSON e `summary.json` com as medianas; esses relatórios são entregues no repositório para conferência e reprodução da auditoria. O relatório do Playwright permanece ignorado por ser um artefato transitório.
+O relatório HTML autocontido da última execução do Playwright fica em `playwright-report/index.html`. A auditoria gera três medições por página e perfil em `reports/lighthouse/`, incluindo HTML, JSON e `summary.json` com as medianas; esses relatórios também são entregues no repositório para conferência e reprodução da auditoria.
 
 ## Dados simulados e cenários
 
