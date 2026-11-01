@@ -27,7 +27,7 @@ npm run test:e2e
 npm run lighthouse
 ```
 
-O relatório HTML do Playwright é criado em `playwright-report/`. A auditoria gera três medições por página e perfil em `reports/lighthouse/`, incluindo HTML, JSON e `summary.json` com as medianas; esses artefatos ficam versionáveis para conferência da entrega.
+O relatório HTML do Playwright é criado em `playwright-report/`. A auditoria gera três medições por página e perfil em `reports/lighthouse/`, incluindo HTML, JSON e `summary.json` com as medianas. Esses artefatos são gerados localmente e ignorados pelo Git; os comandos e resultados resumidos ficam documentados aqui para reprodução da auditoria.
 
 ## Dados simulados e cenários
 
@@ -74,7 +74,7 @@ React, TypeScript, TanStack Router, TanStack Query, Axios, REST simulado por MSW
 
 ## Última auditoria local
 
-Executada em 01/11/2026 contra o build de produção em `http://127.0.0.1:4173`, com três medições por cenário. A mediana, as versões de Node/Lighthouse, os viewports, a configuração de throttling e a quantidade de execuções estão registradas em `reports/lighthouse/summary.json`; os relatórios individuais em HTML/JSON ficam no mesmo diretório.
+Executada em 01/11/2026 contra o build de produção em `http://127.0.0.1:4173`, com três medições por cenário. A mediana, as versões de Node/Lighthouse, os viewports, a configuração de throttling e a quantidade de execuções ficam registradas no `reports/lighthouse/summary.json` gerado localmente; os relatórios individuais em HTML/JSON ficam no mesmo diretório.
 
 | Página/perfil | Performance | Accessibility | Best Practices | SEO |
 | --- | ---: | ---: | ---: | ---: |
