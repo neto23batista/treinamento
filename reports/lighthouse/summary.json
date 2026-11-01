@@ -1,0 +1,72 @@
+{
+  "generatedAt": "2026-11-01T05:12:52.622Z",
+  "origin": "http://127.0.0.1:4173",
+  "tooling": {
+    "node": "v25.6.1",
+    "lighthouse": "^13.6.0",
+    "chromium": "chrome-launcher (installed browser)",
+    "formFactors": [
+      {
+        "name": "desktop",
+        "screen": {
+          "mobile": false,
+          "width": 1440,
+          "height": 900,
+          "deviceScaleFactor": 1,
+          "disabled": false
+        },
+        "throttling": "40ms RTT, 10Mbps, CPU x1"
+      },
+      {
+        "name": "mobile",
+        "screen": {
+          "mobile": true,
+          "width": 390,
+          "height": 844,
+          "deviceScaleFactor": 2,
+          "disabled": false
+        },
+        "throttling": "Lighthouse mobile default"
+      }
+    ],
+    "runsPerScenario": 3
+  },
+  "runs": {
+    "/-desktop": {
+      "performance": 100,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 100,
+      "lcp": 436.2823,
+      "cls": 0,
+      "tbt": 0
+    },
+    "/-mobile": {
+      "performance": 98,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 100,
+      "lcp": 1878.7104,
+      "cls": 0,
+      "tbt": 134.2283
+    },
+    "/nft/emerald-ape-042-desktop": {
+      "performance": 100,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 100,
+      "lcp": 435.44215,
+      "cls": 0,
+      "tbt": 0
+    },
+    "/nft/emerald-ape-042-mobile": {
+      "performance": 98,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 100,
+      "lcp": 1809.5259,
+      "cls": 0,
+      "tbt": 146.23704999999995
+    }
+  }
+}

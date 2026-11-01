@@ -5,4 +5,6 @@ vite.config.js
 vite.config.d.ts
 test-results/
 playwright-report/
-reports/
+reports/*
+!reports/lighthouse/
+!reports/lighthouse/**
