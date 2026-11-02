@@ -428,3 +428,292 @@
     grid-template-columns: minmax(0, 1fr);
   }
 }
+
+.mobile-bottom-nav { display: none; }
+.auth-mobile-title { display: none; }
+.auth-switch { display: none; }
+
+@media (max-width: 740px) {
+  html,
+  body { background: #000; }
+  body { overflow-x: hidden; }
+
+  .site-header { display: none !important; }
+  .app-shell:has(#main-content > .detail-page) .site-header { display: block !important; }
+  .site-footer { display: none; }
+  .skip-link { top: -100px; }
+  .app-shell {
+    width: min(344px, calc(100% - 32px));
+    min-height: calc(100dvh - 20px);
+    margin: 20px auto 0;
+    overflow: visible;
+    border-radius: 28px;
+    background: var(--bg);
+    position: relative;
+  }
+
+  #main-content { min-width: 0; padding-bottom: 108px; }
+
+  .mobile-bottom-nav {
+    display: none !important;
+  }
+
+  .app-shell:has(#main-content > .hero) .mobile-bottom-nav,
+  .app-shell:has(#main-content .confirmation-page) .mobile-bottom-nav,
+  .app-shell:has(#main-content > .not-found) .mobile-bottom-nav {
+    position: fixed;
+    left: 50%;
+    bottom: max(0px, env(safe-area-inset-bottom));
+    transform: translateX(-50%);
+    z-index: 30;
+    width: min(344px, calc(100% - 32px));
+    height: 78px;
+    padding: 10px 17px;
+    display: grid !important;
+    grid-template-columns: repeat(5, 1fr);
+    align-items: center;
+    gap: 8px;
+    border-radius: 28px;
+    background: #291711;
+    box-shadow: 0 -8px 28px rgba(0, 0, 0, .28);
+  }
+
+  .mobile-bottom-nav__item,
+  .mobile-bottom-nav__scan {
+    position: relative;
+    display: grid;
+    place-items: center;
+    min-width: 44px;
+    min-height: 44px;
+    border-radius: 50%;
+    color: #d8b68e;
+    transition: color .2s ease, background .2s ease, transform .2s ease;
+  }
+
+  .mobile-bottom-nav__item:hover,
+  .mobile-bottom-nav__item.is-active { color: var(--accent-light); background: rgba(217, 142, 69, .1); }
+  .mobile-bottom-nav__item:active,
+  .mobile-bottom-nav__scan:active { transform: scale(.95); }
+  .mobile-bottom-nav__scan {
+    width: 48px;
+    height: 48px;
+    margin: -25px auto 0;
+    color: #fff0dc;
+    background: var(--accent);
+    border: 4px solid #3b2119;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, .28);
+  }
+  .mobile-bottom-nav__badge {
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    min-width: 15px;
+    height: 15px;
+    padding: 0 4px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #21110a;
+    font-size: 8px;
+    line-height: 1;
+  }
+
+  .page {
+    width: calc(100% - 40px);
+    padding-top: 20px;
+    padding-bottom: 112px;
+  }
+
+  /* Home frame: the Figma prototype uses a compact 344px app surface. */
+  #main-content:has(> .hero) {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 38px;
+    column-gap: 6px;
+    padding: 31px 20px 112px;
+  }
+
+  #main-content:has(> .hero) .mobile-search {
+    min-height: 38px;
+    margin-top: 0;
+    padding: 0 11px;
+    border: 0;
+    border-radius: 8px;
+    background: #2b1a16;
+  }
+  #main-content:has(> .hero) .mobile-search svg { width: 15px; height: 15px; color: #d19c63; }
+  #main-content:has(> .hero) .mobile-search input { font-size: 10px; }
+  #main-content:has(> .hero) .filter-button {
+    width: 38px;
+    height: 38px;
+    margin-top: 0;
+    border: 0;
+    border-radius: 10px;
+    background: var(--accent);
+    color: #28140c;
+  }
+
+  #main-content:has(> .hero) > .hero {
+    height: 157px;
+    min-height: 157px;
+    margin-top: 12px;
+    border-radius: 20px;
+    grid-template-columns: 1.12fr .88fr;
+    background: #3a2117;
+  }
+  #main-content:has(> .hero) .hero-copy { padding: 11px 4px 11px 12px; justify-content: flex-start; }
+  #main-content:has(> .hero) .hero .eyebrow { margin-bottom: 7px; font-size: 8px; }
+  #main-content:has(> .hero) .hero h1 { max-width: 165px; font-size: 14px; line-height: 1.36; letter-spacing: .02em; }
+  #main-content:has(> .hero) .hero-description { max-width: 135px; margin: 7px 0 1px; font-size: 8px; line-height: 1.42; }
+  #main-content:has(> .hero) .hero .button { min-height: 21px; font-size: 8px; }
+  #main-content:has(> .hero) .hero-dots { left: 50%; bottom: 6px; transform: translateX(-50%); gap: 5px; }
+  #main-content:has(> .hero) .hero-dots i { width: 5px; height: 5px; }
+  #main-content:has(> .hero) .hero-art { height: calc(100% - 16px); margin: 8px 8px 8px 0; border-radius: 12px; }
+  #main-content:has(> .hero) .hero-art::after { border-radius: inherit; }
+
+  #main-content:has(> .hero) .tabs {
+    margin-top: 9px;
+    gap: 9px;
+    border-bottom: 0;
+  }
+  #main-content:has(> .hero) .tabs button { min-height: 29px; font-size: 10px; }
+  #main-content:has(> .hero) .sort-control { display: none !important; }
+  #main-content:has(> .hero) > .catalog-layout { grid-row: 4; padding-top: 9px; }
+  #main-content:has(> .hero) .catalog-grid { gap: 15px 16px; }
+  #main-content:has(> .hero) .nft-card {
+    padding: 4px 4px 9px;
+    border-radius: 16px;
+    background: var(--surface);
+  }
+  #main-content:has(> .hero) .card-image-wrap { border-radius: 12px; }
+  #main-content:has(> .hero) .heart-button { top: 6px; right: 6px; width: 27px; height: 27px; }
+  #main-content:has(> .hero) .rarity-tag { padding: 8px 9px; font-size: 9px; }
+  #main-content:has(> .hero) .card-info { padding: 9px 3px 0; }
+  #main-content:has(> .hero) .card-title { font-size: 10px; }
+  #main-content:has(> .hero) .card-meta { font-size: 9px; }
+  #main-content:has(> .hero) .card-meta strong { font-size: 11px; }
+  #main-content:has(> .hero) .pagination { grid-row: 5; }
+
+  /* Detail page */
+  .detail-page .breadcrumb { margin-bottom: 14px; }
+  .detail-page .breadcrumb strong { visibility: hidden; }
+  .detail-page .detail-layout { gap: 0; }
+  .detail-page .detail-image { border-radius: 18px; aspect-ratio: 1; }
+  .detail-page .detail-copy {
+    position: relative;
+    z-index: 1;
+    margin-top: -30px;
+    padding: 24px 20px 19px;
+    border-radius: 24px;
+    background: var(--surface);
+  }
+  .detail-page .detail-copy .eyebrow { display: none; }
+  .detail-page .detail-copy h1 { font-size: 16px; line-height: 1.3; }
+  .detail-page .rating { padding-top: 0; font-size: 10px; }
+  .detail-page .detail-price { margin: 10px 0 0; text-align: right; font-size: 18px; }
+  .detail-page .detail-copy > .rule { display: none; }
+  .detail-page .detail-copy h2 { margin-top: 17px; font-size: 11px; }
+  .detail-page .detail-description { font-size: 10px; line-height: 1.65; margin-bottom: 9px; }
+  .detail-page .edition-pills { gap: 7px; margin-bottom: 11px; }
+  .detail-page .edition-pills span { padding: 4px 7px; font-size: 9px; }
+  .detail-page .purchase-row { grid-template-columns: minmax(0, 1fr) auto; margin-top: 16px; gap: 8px; }
+  .detail-page .purchase-row .quantity { gap: 5px; font-size: 11px; }
+  .detail-page .purchase-row .quantity::before { content: 'Qtd.'; color: var(--muted); margin-right: 2px; }
+  .detail-page .purchase-row > .button:not(.button-outline) { border-radius: 24px; min-height: 44px; font-size: 11px; }
+  .detail-page .purchase-row > .button-outline { position: fixed; top: 40px; right: max(16px, calc(50% - 152px)); width: 40px; min-width: 40px; height: 40px; min-height: 40px; }
+  .detail-page .detail-facts { margin-top: 17px; font-size: 10px; line-height: 1.8; }
+  .detail-page .share-line,
+  .detail-page .detail-tabs { display: none; }
+
+  /* Cart page */
+  .cart-page .cart-items { gap: 8px; }
+  .cart-page .cart-item {
+    min-height: 84px;
+    grid-template-columns: 82px minmax(0, 1fr) 54px;
+    grid-template-rows: 1fr 1fr;
+    border-radius: 12px;
+  }
+  .cart-page .cart-art { width: 82px; height: 84px; }
+  .cart-page .cart-name { font-size: 10px; }
+  .cart-page .cart-price { font-size: 10px; }
+  .cart-page .cart-total { font-size: 10px; }
+  .cart-page .summary-card {
+    margin-top: 4px;
+    padding: 14px 20px 20px;
+    border-radius: 24px;
+  }
+  .cart-page .summary-card h2 { display: none; }
+  .cart-page .coupon-row { height: 44px; border: 1px solid rgba(148, 84, 48, .45); border-radius: 22px; }
+  .cart-page .coupon-row input { font-size: 9px; padding-left: 13px; }
+  .cart-page .coupon-row button { min-height: 38px; margin: 2px; padding: 0 13px; border-radius: 20px; font-size: 10px; }
+  .cart-page .summary-lines { padding: 17px 0 13px; gap: 12px; font-size: 11px; }
+  .cart-page .summary-total { padding: 14px 0 17px; font-size: 12px; }
+  .cart-page .summary-total strong { font-size: 15px; }
+  .cart-page .summary-card > .button { min-height: 44px; border-radius: 24px; font-size: 11px; }
+  .cart-page .continue-link,
+  .cart-page .recommendations { display: none; }
+
+  /* Payment page: wallet selection first, profile form remains below the fold. */
+  .checkout-page .checkout-layout { gap: 22px; }
+  .checkout-page .checkout-summary {
+    min-height: 650px;
+    padding: 0;
+    background: transparent;
+    border-radius: 0;
+  }
+  .checkout-page .checkout-summary h2,
+  .checkout-page .checkout-item,
+  .checkout-page .summary-lines,
+  .checkout-page .secure-note { display: none; }
+  .checkout-page .wallet-picker {
+    order: 1;
+    margin: 0;
+    padding: 0;
+    border-top: 0;
+  }
+  .checkout-page .wallet-picker::before {
+    content: 'Carteira conectada';
+    display: block;
+    margin-bottom: 14px;
+    color: var(--text);
+    font-size: 13px;
+    font-weight: 700;
+  }
+  .checkout-page .wallet-picker p { margin: 18px 0 10px; font-size: 12px; font-weight: 700; }
+  .checkout-page .wallet-picker button { min-height: 54px; margin-top: 8px; border-radius: 12px; }
+  .checkout-page .wallet-connection { margin-top: 10px; border-radius: 12px; }
+  .checkout-page .summary-total { order: 2; margin-top: 9px; border-top: 0; padding: 12px 0 0; justify-content: flex-end; gap: 17px; }
+  .checkout-page .checkout-summary > .button { order: 3; align-self: stretch; margin-top: auto; min-height: 50px; border-radius: 25px; font-size: 11px; }
+  .checkout-page .checkout-form { margin-top: 0; }
+
+  /* Auth screens */
+  .modal-backdrop { padding: 0; background: #000; }
+  .auth-modal {
+    width: min(344px, calc(100vw - 32px));
+    height: min(746px, calc(100dvh - 40px));
+    max-height: min(746px, calc(100dvh - 40px));
+    padding: 104px 23px 23px;
+    border-radius: 28px;
+    box-shadow: none;
+  }
+  .auth-modal .modal-close {
+    display: grid;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    opacity: 0;
+    overflow: hidden;
+  }
+  .auth-brand { margin-bottom: 53px; font-size: 25px; letter-spacing: .16em; }
+  .auth-mobile-title { display: block; margin: 0 0 28px; text-align: center; font-size: 16px; }
+  .auth-tabs { position: absolute; top: 1px; left: 1px; display: flex; gap: 0; margin: 0; opacity: 0; z-index: 1; }
+  .auth-intro { display: none; }
+  .auth-modal form { gap: 10px; }
+  .auth-modal input { min-height: 42px; border-radius: 8px; padding: 0 12px; font-size: 10px; }
+  .auth-modal .button { min-height: 50px; margin-top: 16px; border-radius: 8px; font-size: 11px; }
+  .forgot-password { margin-top: 7px; font-size: 10px; }
+  .social-divider { margin: 35px 0 7px; font-size: 10px; }
+  .social-button { min-height: 34px; margin-top: 8px; border-radius: 5px; font-size: 10px; }
+  .auth-switch { position: absolute; left: 23px; right: 23px; bottom: 23px; display: flex; align-items: center; justify-content: center; width: auto; margin: 0; padding: 0; color: var(--muted); background: transparent; font-size: 10px; }
+  .auth-switch:hover { color: var(--accent-light); }
+}

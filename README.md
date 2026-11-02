@@ -76,7 +76,7 @@ React, TypeScript, TanStack Router, TanStack Query, Axios, REST simulado por MSW
 
 ## Última auditoria local
 
-Executada em 01/11/2026 contra o build de produção em `http://127.0.0.1:4174`, com três medições por cenário. A mediana, as versões de Node/Lighthouse, os viewports, a configuração de throttling e a quantidade de execuções estão registradas em `reports/lighthouse/summary.json`; os relatórios individuais em HTML/JSON ficam no mesmo diretório.
+Executada em 02/11/2026 contra o build de produção em `http://127.0.0.1:4174`, com três medições por cenário. A mediana, as versões de Node/Lighthouse, os viewports, a configuração de throttling e a quantidade de execuções estão registradas em `reports/lighthouse/summary.json`; os relatórios individuais em HTML/JSON ficam no mesmo diretório.
 
 | Página/perfil | Performance | Accessibility | Best Practices | SEO |
 | --- | ---: | ---: | ---: | ---: |
@@ -85,11 +85,11 @@ Executada em 01/11/2026 contra o build de produção em `http://127.0.0.1:4174`,
 | Detalhe desktop | 100 | 100 | 100 | 100 |
 | Detalhe mobile | 98 | 100 | 100 | 100 |
 
-Todos os quatro perfis atendem ao alvo de performance `>= 90`, além de 100 em acessibilidade, boas práticas e SEO. As medianas de LCP/CLS/TBT foram, respectivamente: home desktop `438/0/0`, home mobile `1885/0/143`, detalhe desktop `433/0/0` e detalhe mobile `1820/0/156` (ms, exceto CLS). O boot sob demanda mantém MSW e Socket.IO disponíveis para os fluxos interativos sem colocar seus chunks de desenvolvimento no caminho crítico do primeiro paint. O runner usa o preset desktop real e registra as medianas completas em `reports/lighthouse/summary.json`; o resultado não é mascarado por uma página simplificada: catálogo, revalidação REST, cenários MSW e eventos Socket.IO continuam cobertos pelos testes.
+Todos os quatro perfis atendem ao alvo de performance `>= 90`, além de 100 em acessibilidade, boas práticas e SEO. As medianas de LCP/CLS/TBT foram, respectivamente: home desktop `463/0/0`, home mobile `1940/0/275`, detalhe desktop `432/0/0` e detalhe mobile `1916/0/268` (ms, exceto CLS). O boot sob demanda mantém MSW e Socket.IO disponíveis para os fluxos interativos sem colocar seus chunks de desenvolvimento no caminho crítico do primeiro paint. O runner usa o preset desktop real e registra as medianas completas em `reports/lighthouse/summary.json`; o resultado não é mascarado por uma página simplificada: catálogo, revalidação REST, cenários MSW e eventos Socket.IO continuam cobertos pelos testes.
 
 ## Imagens e Figma
 
-O arquivo Figma fornecido no desafio não expõe assets exportáveis anonimamente durante a execução local. Por isso, a entrega usa ilustrações SVG locais em `public/assets` como substitutos dos assets visuais. Elas mantêm a direção de arte, paleta, enquadramento e proporções sem depender de uma CDN externa durante os testes e o deploy.
+O arquivo Figma fornecido no desafio não expõe assets exportáveis anonimamente durante a execução local. Por isso, a entrega usa ilustrações SVG locais em `src/assets`, importadas pelo Vite e incorporadas ao bundle como substitutos dos assets visuais. Elas mantêm a direção de arte, paleta, enquadramento e proporções sem depender de uma CDN externa durante os testes e o deploy.
 
 ## Deploy
 

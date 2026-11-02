@@ -1,3 +1,9 @@
+import coralDream from '../assets/coral-dream.svg'
+import emeraldApe from '../assets/emerald-ape.svg'
+import goldenBeat from '../assets/golden-beat.svg'
+import ivoryBaron from '../assets/ivory-baron.svg'
+import violetNomad from '../assets/violet-nomad.svg'
+
 export type NFT = {
   id: string
   name: string
@@ -16,11 +22,11 @@ export type NFT = {
 }
 
 export const imageSet = {
-  emerald: '/assets/emerald-ape.svg',
-  violet: '/assets/violet-nomad.svg',
-  ivory: '/assets/ivory-baron.svg',
-  golden: '/assets/golden-beat.svg',
-  coral: '/assets/coral-dream.svg',
+  emerald: emeraldApe,
+  violet: violetNomad,
+  ivory: ivoryBaron,
+  golden: goldenBeat,
+  coral: coralDream,
 }
 
 export const nfts: NFT[] = [

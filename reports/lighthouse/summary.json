@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-01T05:31:46.642Z",
+  "generatedAt": "2026-11-02T03:06:05.533Z",
   "origin": "http://127.0.0.1:4174",
   "tooling": {
     "node": "v25.6.1",
@@ -37,36 +37,36 @@
       "accessibility": 100,
       "bestPractices": 100,
       "seo": 100,
-      "lcp": 438.1939,
+      "lcp": 462.984,
       "cls": 0,
       "tbt": 0
     },
     "/-mobile": {
-      "performance": 98,
+      "performance": 94,
       "accessibility": 100,
       "bestPractices": 100,
       "seo": 100,
-      "lcp": 1884.7249,
+      "lcp": 1940.3326,
       "cls": 0,
-      "tbt": 142.78674999999998
+      "tbt": 274.8336999999998
     },
     "/nft/emerald-ape-042-desktop": {
       "performance": 100,
       "accessibility": 100,
       "bestPractices": 100,
       "seo": 100,
-      "lcp": 432.61170000000004,
+      "lcp": 432.3451,
       "cls": 0,
       "tbt": 0
     },
     "/nft/emerald-ape-042-mobile": {
-      "performance": 98,
+      "performance": 94,
       "accessibility": 100,
       "bestPractices": 100,
       "seo": 100,
-      "lcp": 1820.2255,
+      "lcp": 1915.7986,
       "cls": 0,
-      "tbt": 156.26985000000013
+      "tbt": 267.82079999999996
     }
   }
 }
