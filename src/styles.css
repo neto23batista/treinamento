@@ -31,7 +31,6 @@
 .wallet-connection.connected { color: #9ad69a; }
 .wallet-connection button { min-height: 34px; }
 
-/* Mobile refinement aligned with the Figma prototype. Desktop rules remain unchanged. */
 @media (max-width: 740px) {
   .site-header {
     display: block;
@@ -61,7 +60,6 @@
   }
   #main-content { min-width: 0; }
 
-  /* Home: search/filter, compact hero, tabs, then the NFT grid. */
   #main-content:has(> .hero) {
     display: grid;
     grid-template-columns: minmax(0, 1fr) 44px;
@@ -240,7 +238,6 @@
   #main-content:has(> .hero) .pagination,
   #main-content:has(> .hero) .catalog-refresh { grid-column: 1 / -1; }
 
-  /* Figma mobile pages use a compact back/title row in place of the desktop header. */
   .page {
     width: calc(100% - 28px);
     padding-top: 14px;
@@ -388,7 +385,6 @@
   .cart-page .recommendations { margin-top: 45px; }
   .cart-page .nft-card.compact .card-image-wrap { height: auto; aspect-ratio: 1; border-radius: 12px; }
 
-  /* Checkout becomes a readable single-column flow on narrow screens. */
   .checkout-page .checkout-layout { gap: 21px; }
   .checkout-page .breadcrumb strong { font-size: 0; }
   .checkout-page .breadcrumb strong::after { content: 'Pagamento com carteira'; font-size: 14px; }
@@ -525,7 +521,6 @@
     padding-bottom: 112px;
   }
 
-  /* Home frame: the Figma prototype uses a compact 344px app surface. */
   #main-content:has(> .hero) {
     display: grid;
     grid-template-columns: minmax(0, 1fr) 38px;
@@ -594,7 +589,6 @@
   #main-content:has(> .hero) .card-meta strong { font-size: 11px; }
   #main-content:has(> .hero) .pagination { grid-row: 5; }
 
-  /* Detail page */
   .detail-page .breadcrumb { margin-bottom: 14px; }
   .detail-page .breadcrumb strong { visibility: hidden; }
   .detail-page .detail-layout { gap: 0; }
@@ -625,7 +619,6 @@
   .detail-page .share-line,
   .detail-page .detail-tabs { display: none; }
 
-  /* Cart page */
   .cart-page .cart-items { gap: 8px; }
   .cart-page .cart-item {
     min-height: 84px;
@@ -653,7 +646,6 @@
   .cart-page .continue-link,
   .cart-page .recommendations { display: none; }
 
-  /* Payment page: wallet selection first, profile form remains below the fold. */
   .checkout-page .checkout-layout { gap: 22px; }
   .checkout-page .checkout-summary {
     min-height: 650px;
@@ -686,7 +678,6 @@
   .checkout-page .checkout-summary > .button { order: 3; align-self: stretch; margin-top: auto; min-height: 50px; border-radius: 25px; font-size: 11px; }
   .checkout-page .checkout-form { margin-top: 0; }
 
-  /* Auth screens */
   .modal-backdrop { padding: 0; background: #000; }
   .auth-modal {
     width: min(344px, calc(100vw - 32px));
